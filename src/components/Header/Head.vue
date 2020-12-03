@@ -15,8 +15,8 @@
       <el-menu-item index="/dog">宠物狗</el-menu-item>
       <el-menu-item index="/cat">宠物猫</el-menu-item>
       <el-menu-item index="/norm">领养准则</el-menu-item>
-      <el-menu-item index="5">系统公告</el-menu-item>
-      <el-menu-item index="6">联系我们</el-menu-item>
+      <el-menu-item index="/notice">系统公告</el-menu-item>
+      <el-menu-item index="/connection">联系我们</el-menu-item>
       <el-menu-item index="/signin" class="signUp">注册</el-menu-item>
       <el-menu-item index="/login" class="login"> 登录 </el-menu-item>
     </el-menu>

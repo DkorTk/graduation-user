@@ -6,6 +6,8 @@ import Signin from "../views/Signin.vue"
 import Dog from "../views/dog.vue"
 import Cat from "../views/cat.vue"
 import Norm from "../views/norm.vue"
+import Notice from "../views/notice.vue"
+import Connection from "../views/connection.vue"
 
 Vue.use(VueRouter);
 
@@ -46,7 +48,19 @@ const routes = [
     name: 'Norm',
     component: Norm,
     meta: { title: '领养准则'}
-  }
+  },
+  {
+    path: "/notice",
+    name: 'Notice',
+    component: Notice,
+    meta: { title: '系统公告'}
+  },
+  {
+    path: "/connection",
+    name: 'Connection',
+    component: Connection,
+    meta: { title: '联系我们'}
+  },
 
 ];
 

@@ -64,7 +64,7 @@ export default {
 };
 </script>
 
-<style>
+<style  lang="scss" scoped>
 .login {
   display: flex;
   justify-content: center;
