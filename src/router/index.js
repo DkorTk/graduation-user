@@ -3,6 +3,9 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Signin from "../views/Signin.vue" 
+import Dog from "../views/dog.vue"
+import Cat from "../views/cat.vue"
+import Norm from "../views/norm.vue"
 
 Vue.use(VueRouter);
 
@@ -25,6 +28,24 @@ const routes = [
     name: 'Signin',
     component: Signin,
     meta: { title: '注册'}
+  },
+  {
+    path: "/dog",
+    name: 'Dog',
+    component: Dog,
+    meta: { title: '宠物狗'}
+  },
+  {
+    path: "/cat",
+    name: 'Cat',
+    component: Cat,
+    meta: { title: '宠物猫'}
+  },
+  {
+    path: "/norm",
+    name: 'Norm',
+    component: Norm,
+    meta: { title: '领养准则'}
   }
 
 ];
@@ -35,6 +56,7 @@ const router = new VueRouter({
   routes
 });
 
+// title自定义
 router.beforeEach((to, form, next) => {
   if (to.meta.title) {//判断是否有标题
     console.log(to.meta.title)
