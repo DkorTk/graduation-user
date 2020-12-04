@@ -1,247 +1,131 @@
 <template>
   <div class="home">
     <Head />
-       <!-- 宠物狗板块 -->
+    <!-- 宠物狗板块 -->
     <div class="dog">
-      <el-row>
-        <el-col
-          :span="3"
-          v-for="(o, index) in 1"
-          :key="o+'1'"
-          :offset="index > 0 ? 4 : 0"
-        >
-          <div class="dogText">
-            <div class="textBig">宠</div>
-            <div class="textBig">物</div>
-            <div class="textBig">狗</div>
-          </div>
-        </el-col>
-
-        <el-col
-          :span="5"
-          v-for="(o, index) in 1"
-          :key="o+'2'"
-          :offset="index > 0 ? 4 : 0"
-        >
-          <el-card
-            :body-style="{ padding: '0px' }"
-            shadow="always"
-            class="card"
-          >
-            <img
-              src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-              class="image"
-            />
-            <div style="padding: 14px">
-              <div class="bottom clearfix">
-                <el-button type="text" class="button">进入详情</el-button>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-
-        <el-col
-          :span="5"
-          v-for="(o, index) in 1"
-          :key="o+'3'"
-          :offset="index > 0 ? 4 : 0"
-        >
-          <el-card
-            :body-style="{ padding: '0px' }"
-            shadow="always"
-            class="card"
-          >
-            <img
-              src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-              class="image"
-            />
-            <div style="padding: 14px">
-              <div class="bottom clearfix">
-                <el-button type="text" class="button">进入详情</el-button>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-
-        <el-col
-          :span="5"
-          v-for="(o, index) in 1"
-          :key="o+'4'"
-          :offset="index > 0 ? 4 : 0"
-        >
-          <el-card
-            :body-style="{ padding: '0px' }"
-            shadow="always"
-            class="card"
-          >
-            <img
-              src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-              class="image"
-            />
-            <div style="padding: 14px">
-              <div class="bottom clearfix">
-                <el-button type="text" class="button">进入详情</el-button>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-
-        <el-col
-          :span="5"
-          v-for="(o, index) in 1"
-          :key="o"
-          :offset="index > 0 ? 4 : 0"
-        >
-          <el-card
-            :body-style="{ padding: '0px' }"
-            shadow="always"
-            class="card"
-          >
-            <img
-              src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-              class="image"
-            />
-            <div style="padding: 14px">
-              <div class="bottom clearfix">
-                <el-button type="text" class="button">进入详情</el-button>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-      </el-row>
+      <div class="demo-image__placeholder">
+        <div class="homeText">
+          <p>宠</p>
+          <p>物</p>
+          <p>狗</p>
+        </div>
+        <div class="block">
+          <el-image :src="src"></el-image>
+          <el-button type="primary" icon="el-icon-view">详情</el-button>
+        </div>
+        <div class="block">
+          <el-image :src="src"> </el-image>
+          <el-button type="primary" icon="el-icon-view">详情</el-button>
+        </div>
+        <div class="block">
+          <el-image :src="src"></el-image>
+          <el-button type="primary" icon="el-icon-view">详情</el-button>
+        </div>
+        <div class="block">
+          <el-image :src="src"></el-image>
+          <el-button type="primary" icon="el-icon-view">详情</el-button>
+        </div>
+      </div>
     </div>
 
     <!-- 宠物猫板块 -->
-    <div class="cat">
-      <el-row>
-        <el-col
-          :span="3"
-          v-for="(o, index) in 1"
-          :key="o+'1'"
-          :offset="index > 0 ? 4 : 0"
-        >
-          <div class="dogText">
-            <div class="textBig">宠</div>
-            <div class="textBig">物</div>
-            <div class="textBig">猫</div>
-          </div>
-        </el-col>
-o
-        <el-col
-          :span="5"
-          v-for="(o, index) in 1"
-          :key="o+'2'"
-          :offset="index > 0 ? 4 : 0"
-        >
-          <el-card
-            :body-style="{ padding: '0px' }"
-            shadow="always"
-            class="card"
-          >
-            <img
-              src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-              class="image"
-            />
-            <div style="padding: 14px">
-              <div class="bottom clearfix">
-                <el-button type="text" class="button">进入详情</el-button>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-
-        <el-col
-          :span="5"
-          v-for="(o, index) in 1"
-          :key="o+'3'"
-          :offset="index > 0 ? 4 : 0"
-        >
-          <el-card
-            :body-style="{ padding: '0px' }"
-            shadow="always"
-            class="card"
-          >
-            <img
-              src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-              class="image"
-            />
-            <div style="padding: 14px">
-              <div class="bottom clearfix">
-                <el-button type="text" class="button">进入详情</el-button>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-
-        <el-col
-          :span="5"
-          v-for="(o, index) in 1"
-          :key="o+'4'"
-          :offset="index > 0 ? 4 : 0"
-        >
-          <el-card
-            :body-style="{ padding: '0px' }"
-            shadow="always"
-            class="card"
-          >
-            <img
-              src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-              class="image"
-            />
-            <div style="padding: 14px">
-              <div class="bottom clearfix">
-                <el-button type="text" class="button">进入详情</el-button>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-
-        <el-col
-          :span="5"
-          v-for="(o, index) in 1"
-          :key="o+'5'"
-          :offset="index > 0 ? 4 : 0"
-        >
-          <el-card
-            :body-style="{ padding: '0px' }"
-            shadow="always"
-            class="card"
-          >
-            <img
-              src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-              class="image"
-            />
-            <div style="padding: 14px">
-              <div class="bottom clearfix">
-                <el-button type="text" class="button">进入详情</el-button>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-      </el-row>
+    <!-- 宠物狗板块 -->
+    <div class="dog">
+      <div class="demo-image__placeholder">
+        <div class="homeText">
+          <p>宠</p>
+          <p>物</p>
+          <p>猫</p>
+        </div>
+        <div class="block">
+          <el-image :src="src"></el-image>
+          <el-button type="primary" icon="el-icon-view">详情</el-button>
+        </div>
+        <div class="block">
+          <el-image :src="src"> </el-image>
+          <el-button type="primary" icon="el-icon-view">详情</el-button>
+        </div>
+        <div class="block">
+          <el-image :src="src"></el-image>
+          <el-button type="primary" icon="el-icon-view">详情</el-button>
+        </div>
+        <div class="block">
+          <el-image :src="src"></el-image>
+          <el-button type="primary" icon="el-icon-view">详情</el-button>
+        </div>
+      </div>
     </div>
 
-    <Footer/>
-   
+    <Footer />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Head from "../components/Header/Head";
-import Footer from "../components/Footer/Footer"
+import Footer from "../components/Footer/Footer";
 export default {
   name: "Home",
   components: {
     Head,
-    Footer
+    Footer,
   },
-
+  data() {
+    return {
+      radio1: "",
+      radio2: "上海",
+      radio3: "上海",
+      radio4: "上海",
+      src:
+        "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-  // 宠物狗猫
+// 图片
+.demo-image__placeholder {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.block {
+  display: inline-block;
+  padding: 15px;
+  margin: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.22);
+}
+
+.demonstration {
+  color: #8492a6;
+  display: block;
+  margin-top: 10px;
+}
+
+.dog {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.22);
+}
+
+.homeText {
+  display: inline-block;
+
+  padding: 10px;
+  p{
+    padding: 10px;
+    margin: 15px 5px 10px;
+  }
+}
+
+.el-button {
+  font-size: 5px;
+  padding: 6px 20px;
+  margin-top: 10px;
+}
+// 宠物狗猫
 .el-row {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.22);
 }
