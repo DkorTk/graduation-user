@@ -7,16 +7,20 @@
           用户登录
         </div>
         <div class="demo-input-suffix">
-          <el-input placeholder="请输入账号" prefix-icon="el-icon-user"  v-model="username">
+          <el-input
+            placeholder="请输入账号"
+            prefix-icon="el-icon-user"
+            v-model="username"
+          >
           </el-input>
           <el-input
             prefix-icon="el-icon-lock"
             placeholder="请输入密码"
-             v-model="password"
+            v-model="password"
             show-password
           ></el-input>
         </div>
-        <el-button type="primary" class="button">登录</el-button>
+        <el-button type="primary" class="button" @click="login">登录</el-button>
         <div class="linkFather">
           <div class="link">
             忘记密码|注册
@@ -32,22 +36,29 @@
 <script>
 import Header from "../components/Header/Head";
 import Footer from "../components/Footer/Footer";
+import { apiLogin } from '../api/index'
 export default {
   name: "login",
-  data() {
-    return {
-      username: '',
-      password: ''
-    }
-  },
   components: {
     Header,
     Footer,
   },
+  data() {
+    return {
+      username: "",
+      password: "",
+    };
+  },
+  methods: {
+    login() {
+      console.log(this.username, this.password);
+      apiLogin({username: this.username, password: this.password})
+    }
+  }
 };
 </script>
 
-<style  lang="scss" scoped>
+<style lang="scss" scoped>
 .login {
   display: flex;
   justify-content: center;

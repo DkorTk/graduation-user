@@ -24,17 +24,17 @@
           <el-input
             prefix-icon="el-icon-lock"
             placeholder="请确认密码"
-            v-model="password"
+            v-model="repassword"
             show-password
           ></el-input>
           <el-input
             placeholder="请输入昵称"
             prefix-icon="el-icon-user"
-            v-model="username"
+            v-model="nickname"
           >
           </el-input>
         </div>
-        <el-button type="primary" class="button">注册</el-button>
+        <el-button type="primary" class="button"  @click="signin">注册</el-button>
         <div class="linkFather">
           <div class="link">
               注册即代表你已阅读同意《领养准则》
@@ -49,17 +49,25 @@
 <script>
 import Header from "../components/Header/Head";
 import Footer from "../components/Footer/Footer";
+import { apiSignin } from '../api/index'
 export default {
   name: "signin",
   data() {
     return {
       username: "",
       password: "",
+      nickname: "",
     };
   },
   components: {
     Header,
     Footer,
+  },
+  methods: {
+    signin() {
+      console.log(this.username, this.password, this.nickname);
+      apiSignin({username: this.username, password: this.password, nickname: this.nickname})
+    }
   },
 };
 </script>
