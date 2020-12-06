@@ -8,9 +8,9 @@
         </div>
         <div class="demo-input-suffix">
           <el-input
-            placeholder="请输入账号"
+            placeholder="请输入邮箱"
             prefix-icon="el-icon-user"
-            v-model="username"
+            v-model="email"
           >
           </el-input>
           <el-input
@@ -23,7 +23,7 @@
         <el-button type="primary" class="button" @click="login">登录</el-button>
         <div class="linkFather">
           <div class="link">
-            忘记密码|注册
+            <el-link type="info" @click="toSignin">注册</el-link>
           </div>
         </div>
       </div>
@@ -45,14 +45,17 @@ export default {
   },
   data() {
     return {
-      username: "",
+      email: "",
       password: "",
     };
   },
   methods: {
     login() {
-      console.log(this.username, this.password);
-      apiLogin({username: this.username, password: this.password})
+      console.log(this.email, this.password);
+      apiLogin({email: this.email, password: this.password})
+    },
+    toSignin() {
+       this.$router.push({ path: "signin" });
     }
   }
 };

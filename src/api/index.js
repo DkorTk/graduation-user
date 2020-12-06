@@ -1,19 +1,17 @@
 import http from "../http";
 
-export function apiLogin({ username, password }) {
+export function apiLogin({ email, password }) {
     return http.post("/login", {
-        username,
+        email,
         password
     }).then(function (response) {
         console.log(response);
     });
 }
-export function apiSignin({ username, password, nickname }) {
+export function apiSignin({ email, password, nickname }) {
     return http.post("/signin", {
-        username,
+        email,
         password,
         nickname
-    }).then(function (response) {
-        console.log(response);
     });
 }

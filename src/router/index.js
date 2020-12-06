@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
-import Signin from "../views/Signin.vue" 
+import Signin2 from "../views/Signin2.vue" 
 import Dog from "../views/dog.vue"
 import Cat from "../views/cat.vue"
 import Norm from "../views/norm.vue"
@@ -28,7 +28,7 @@ const routes = [
   {
     path: "/signin",
     name: 'Signin',
-    component: Signin,
+    component: Signin2,
     meta: { title: '注册'}
   },
   {

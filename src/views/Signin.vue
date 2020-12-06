@@ -78,6 +78,7 @@ export default {
   justify-content: center;
   align-items: center;
   position: relative;
+
 }
 .loginInput {
   margin: 30px;
