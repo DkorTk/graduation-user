@@ -1,11 +1,8 @@
 import http from "../http";
 
-export function apiLogin({ email, password }) {
+export function apiLogin(data) {
     return http.post("/login", {
-        email,
-        password
-    }).then(function (response) {
-        console.log(response);
+        data
     });
 }
 export function apiSignin({ email, password, nickname }) {

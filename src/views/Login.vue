@@ -6,20 +6,22 @@
         <div class="text">
           用户登录
         </div>
-        <div class="demo-input-suffix">
-          <el-input
-            placeholder="请输入邮箱"
-            prefix-icon="el-icon-user"
-            v-model="email"
-          >
-          </el-input>
-          <el-input
-            prefix-icon="el-icon-lock"
-            placeholder="请输入密码"
-            v-model="password"
-            show-password
-          ></el-input>
-        </div>
+        <el-form ref="loginForm" :model="loginForm" :rules="loginRules">
+          <div class="demo-input-suffix">
+            <el-input
+              placeholder="请输入邮箱"
+              prefix-icon="el-icon-user"
+              v-model="loginForm.email"
+            >
+            </el-input>
+            <el-input
+              prefix-icon="el-icon-lock"
+              placeholder="请输入密码"
+              v-model="loginForm.password"
+              show-password
+            ></el-input>
+          </div>
+        </el-form>
         <el-button type="primary" class="button" @click="login">登录</el-button>
         <div class="linkFather">
           <div class="link">
@@ -36,7 +38,7 @@
 <script>
 import Header from "../components/Header/Head";
 import Footer from "../components/Footer/Footer";
-import { apiLogin } from '../api/index'
+// import { apiLogin } from "../api/index";
 export default {
   name: "login",
   components: {
@@ -45,19 +47,36 @@ export default {
   },
   data() {
     return {
-      email: "",
-      password: "",
+      loginForm: {
+        email: "",
+        password: "",
+      },
     };
   },
   methods: {
     login() {
-      console.log(this.email, this.password);
-      apiLogin({email: this.email, password: this.password})
+      console.log(this.loginForm.email, this.loginForm.password);
+      // apiLogin({ email: this.loginForm.email, password: this.loginForm.password });
+      // console.log(this.$qs.stringify(this.loginForm));
+      // console.log(JSON.stringify(this.loginForm));
+      this.$store
+        .dispatch("apiLogin", JSON.stringify(this.loginForm))
+        .then(() => {
+          this.$message.success("登录成功!");
+        })
+        .catch(() => {
+          this.$message.error("登录失败");
+        });
+      // 清空表单
+      let input = document.querySelectorAll(".demo-input-suffix input");
+      input[0].value = "";
+      input[1].value = "";
+      console.log();
     },
     toSignin() {
-       this.$router.push({ path: "signin" });
-    }
-  }
+      this.$router.push({ path: "signin" });
+    },
+  },
 };
 </script>
 
