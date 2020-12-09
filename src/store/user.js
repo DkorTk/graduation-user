@@ -1,10 +1,10 @@
 import { apiLogin } from '../api/index'
-import { setToken } from '@/utils/auth'
+import { setToken, getToken, removeToken} from '@/utils/auth'
 
 
 export default {
   state: {
-    token: ''
+    token: getToken()
   },
   mutations: {
     SET_TOKEN:(state, token) => {
@@ -12,6 +12,8 @@ export default {
   }
   },
   actions: {
+
+    // 用户登录
     apiLogin({ commit }, info) {
       return new Promise((resolve, reject) => {
           apiLogin(info).then(response => {
@@ -30,6 +32,15 @@ export default {
               reject(error);
           })
       })
+  },
+
+  // 用户注销
+  logout({ commit }) {
+    return new Promise((resolve) => {
+      commit('SET_TOKEN', '');
+      removeToken();
+      resolve()
+    })
   }
   },
   modules: {}

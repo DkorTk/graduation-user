@@ -11,19 +11,39 @@
       active-text-color="#ffd04b"
       router
     >
-      <el-menu-item index="/">首页</el-menu-item>
-      <el-menu-item index="/dog">宠物狗</el-menu-item>
-      <el-menu-item index="/cat">宠物猫</el-menu-item>
-      <el-menu-item index="/norm">领养准则</el-menu-item>
-      <el-menu-item index="/notice">系统公告</el-menu-item>
-      <el-menu-item index="/connection">联系我们</el-menu-item>
-      <el-menu-item index="/signin" class="signUp">注册</el-menu-item>
-      <el-menu-item index="/login" class="login"> 登录 </el-menu-item>
+      <el-menu-item index="/"><i class="el-icon-s-home"></i>首页</el-menu-item>
+      <el-menu-item index="/dog"
+        ><i class="iconfont">&#xe669;</i> &nbsp;&nbsp;&nbsp;宠物狗</el-menu-item
+      >
+      <el-menu-item index="/cat"
+        ><i class="iconfont">&#xe65e;</i>&nbsp;&nbsp;&nbsp;宠物猫</el-menu-item
+      >
+      <el-menu-item index="/norm">
+        <i class="el-icon-tickets"></i>领养准则</el-menu-item
+      >
+      <el-menu-item index="/notice"
+        ><i class="el-icon-s-order"></i>系统公告</el-menu-item
+      >
+      <el-menu-item index="/connection">
+        <i class="el-icon-s-comment"></i>联系我们</el-menu-item
+      >
+      <el-menu-item index="/signin" class="signUp" v-if="token == null"
+        ><i class="iconfont">&#xe6d6;</i>&nbsp;&nbsp;&nbsp;注册</el-menu-item
+      >
+      <el-menu-item index="/login" class="login" v-if="token == null">
+        <i class="el-icon-user"></i>登录
+      </el-menu-item>
+      <el-menu-item class="signUp" @click="logout" v-if="token != null"
+        ><i class="el-icon-delete"></i>注销</el-menu-item
+      >
+      <el-menu-item index="/" class="login" v-if="token != null">
+        <i class="el-icon-user"></i>个人中心
+      </el-menu-item>
     </el-menu>
     <div class="swiper">
       <el-carousel :interval="4000" type="card" height="200px">
-        <el-carousel-item v-for="item in 6" :key="item">
-          <h3 class="medium">{{ item }}</h3>
+        <el-carousel-item v-for="(item, index) in carouselList" :key="index">
+          <img :src="item" />
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -46,8 +66,41 @@
 <script>
 // import "swiper/dist/css/swiper.css";
 // import { swiper, swiperSlide } from "vue-awesome-swiper";
-
+import { mapGetters } from "vuex";
 export default {
+  data() {
+    return {
+      carouselList: [
+        require("../../assets/img/1.jpg"),
+        require("../../assets/img/2.jpg"),
+        require("../../assets/img/3.jpg"),
+        require("../../assets/img/4.jpg"),
+        require("../../assets/img/5.jpg"),
+      ],
+    };
+  },
+  computed: {
+    ...mapGetters(["token"]),
+  },
+
+  methods: {
+    logout() {
+      console.log("触发logout函数");
+
+      this.$store
+        .dispatch("logout")
+        .then(() => {
+          window.location.reload();
+        })
+        .then(() => {
+          this.$message.success("注销成功");
+        })
+        .catch(() => {
+          this.$message.error("注销失败");
+          window.location.reload();
+        });
+    },
+  },
   // components: {
   //   swiper,
   //   swiperSlide,
@@ -156,6 +209,27 @@ export default {
 
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
+}
+
+// icon
+
+@font-face {
+  font-family: "iconfont"; /* project id 2255426 */
+  src: url("//at.alicdn.com/t/font_2255426_tmkc7fo499.eot");
+  src: url("//at.alicdn.com/t/font_2255426_tmkc7fo499.eot?#iefix")
+      format("embedded-opentype"),
+    url("//at.alicdn.com/t/font_2255426_tmkc7fo499.woff2") format("woff2"),
+    url("//at.alicdn.com/t/font_2255426_tmkc7fo499.woff") format("woff"),
+    url("//at.alicdn.com/t/font_2255426_tmkc7fo499.ttf") format("truetype"),
+    url("//at.alicdn.com/t/font_2255426_tmkc7fo499.svg#iconfont") format("svg");
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
 }
 // .swiper-container {
 //   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.22);

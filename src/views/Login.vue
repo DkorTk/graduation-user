@@ -39,12 +39,15 @@
 import Header from "../components/Header/Head";
 import Footer from "../components/Footer/Footer";
 // import { apiLogin } from "../api/index";
+
+
 export default {
   name: "login",
   components: {
     Header,
     Footer,
   },
+
   data() {
     return {
       loginForm: {
@@ -53,15 +56,20 @@ export default {
       },
     };
   },
+
+
   methods: {
     login() {
       console.log(this.loginForm.email, this.loginForm.password);
       // apiLogin({ email: this.loginForm.email, password: this.loginForm.password });
       // console.log(this.$qs.stringify(this.loginForm));
       // console.log(JSON.stringify(this.loginForm));
+
+      //传递信息
       this.$store
         .dispatch("apiLogin", JSON.stringify(this.loginForm))
         .then(() => {
+          this.$router.push({ path: "/" });
           this.$message.success("登录成功!");
         })
         .catch(() => {
@@ -71,7 +79,6 @@ export default {
       let input = document.querySelectorAll(".demo-input-suffix input");
       input[0].value = "";
       input[1].value = "";
-      console.log();
     },
     toSignin() {
       this.$router.push({ path: "signin" });
@@ -81,6 +88,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .login {
   display: flex;
   justify-content: center;
@@ -126,4 +134,6 @@ export default {
   float: right;
   color: #b5b6ba;
 }
+
+
 </style>
