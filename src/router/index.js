@@ -8,6 +8,7 @@ import Cat from "../views/cat.vue"
 import Norm from "../views/norm.vue"
 import Notice from "../views/notice.vue"
 import Connection from "../views/connection.vue"
+import Detail from "../views/detail.vue"
 
 Vue.use(VueRouter);
 
@@ -60,6 +61,12 @@ const routes = [
     name: 'Connection',
     component: Connection,
     meta: { title: '联系我们'}
+  },
+  {
+    path: "/detail",
+    name: 'Detail',
+    component: Detail,
+    meta: { title: '宠物详情页'}
   },
 
 ];

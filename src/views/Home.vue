@@ -11,7 +11,7 @@
         </div>
         <div class="block">
           <el-image :src="src"></el-image>
-          <el-button type="primary" icon="el-icon-view">详情</el-button>
+          <el-button type="primary" icon="el-icon-view" @click="toDetail">详情</el-button>
         </div>
         <div class="block">
           <el-image :src="src"> </el-image>
@@ -79,6 +79,11 @@ export default {
       src:
         "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
     };
+  },
+  methods: {
+    toDetail() {
+      this.$router.push({ path: "detail" });
+    },
   },
 };
 </script>
